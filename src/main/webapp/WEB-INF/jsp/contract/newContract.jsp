@@ -18,6 +18,7 @@
   </script>
  
   <script type="text/javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" src="/js/ev.validation.js"></script>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -31,37 +32,13 @@
   <meta name="googlebot" content="archive" />
   <meta name="format-detection" content="telephone=no">
 
-  <!-- SEO 공통 -->
-<!--   <link rel="canonical" href="https://www.cevo.co.kr" /> -->
-<!--   <link rel="shortcut icon" href="/lib/images/seo/favicon.ico" /> -->
-<!--   <link rel="apple-touch-icon-precomposed" href="/lib/images/seo/size-152x152.png" /> -->
 
   <!-- 공통 스타일시트 -->
   <link rel="stylesheet" type="text/css" href='<c:url value="/css/ev.css"/>' />
 
-  <!-- 네이버 연관채널 -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "Person",
-    "name": "cevo",
-    "url": "https://www.cevo.co.kr",
-    "sameAs": [
-      "https://blog.naver.com/cevo_ev",
-      "https://www.instagram.com/cevo_ev/",
-      "https://www.facebook.com/cevo.ev/"
-    ]
-  }
-  </script>
-
-  <!-- 크로스브라우징 -->
-  <!--[if lt IE 9]>
-   <script src="/lib/plugins/html5shiv.min.js"></script>
-  <![endif]-->
 
 
-
-  <title>CEVO | CAMMSYS</title>
+  <title>KST EV</title>
 
   <!-- SEO 개별 -->
   <meta name="title" content="캠시스 전기차 CEVO" />
@@ -80,12 +57,7 @@
   </script>
 </head>
 <body class="body-agreement">
-  
-  <!-- Legacy 브라우저 경고 (IE9 이하) -->
-    <!--[if lt IE 9]><div class="legacy-browser">
-    <div class="legacy-pad"><p>현재 사용중인 브라우저는 지원이 중단된 브라우저입니다. 원활한 서비스를 위해 internet exploler 브라우저를 <a href="http://windows.microsoft.com/ko-kr/internet-explorer/ie-11-worldwide-languages" target="_blank">최신 버전</a>으로 업데이트 해주시길 바랍니다.<br>Google Chrome 브라우저에서 접속하시면, 보다 빠르고 안정적인 서비스를 이용하실 수 있습니다. <a target="_blank" href="https://www.google.com/intl/ko_ALL/chrome/">Google Chrome 브라우저 설치하기</a></p></div><button class="legacy-close" onclick="$('.legacy-browser').remove();">[닫기]</button>
-    </div><![endif]-->
- 
+
   <!-- 공통 스킵 네비(헤더) -->
   <div class="skip-wrap">
     <a href="#skip-content" target="_self" class="skip-nav">본문 영역 바로가기</a>
@@ -145,6 +117,7 @@
                 </div>
                 <div class="agreement-contract-row-value value-username">
                   <input type="text" class="agreement-contract-input input-username" title="이름" id="userName"  name="userName" value="" placeholder="" maxlength="15" readonly>
+                  <input type="button" class="agreement-contract-button-confirm" value="test" title="본인인증: 새 창으로 열기" id="test" onclick="javascript:onTheTest();">
                 </div>
               </div>
               <!-- 전화번호 -->
@@ -612,33 +585,33 @@
     </div>
   </footer>
 
-  <!-- 공통 플러그인 -->
-<!--   <script src="/lib/plugins/jquery-1.11.1.min.js"></script> -->
-<!--   <script src="/lib/plugins/jquery-ui.min.js"></script> -->
-<!--   <script src="/lib/plugins/jquery.waypoints.min.js"></script> -->
-<!--   <script src="/lib/plugins/slick.min.js"></script> -->
+<!-- 페이지 개별 스크립트 -->
+<script type="text/javascript">
 
-  <!-- 공통 자바스크립트 -->
-<!--   <script src="/lib/js/global.js"></script> -->
-<!--   <script src="/lib/js/function.js"></script> -->
-<!--   <script src="/lib/js/ua.js"></script> -->
-<!--   <script src="/lib/js/responsive.js"></script> -->
-<!--   <script src="/lib/js/gnb.js"></script> -->
-<!--   <script src="/lib/js/popup.js"></script> -->
-<!--   <script src="/lib/js/common.js"></script> -->
+$(document).ready(function (){
 
-<!--   <script src="/src/js/ksmng_jquery_validation.js"></script> -->
-<!--   <script src="/src/plugins/jquery.form.js"></script> -->
-  <!-- Test pg팝업창 테스트 0723개발 -->
-  <!-- <script type="text/javascript" src="http://testpg.easypay.co.kr/webpay/EasypayCard_Web.js"></script>  -->
-  <!-- Real : pg -->
-<!--   <script type="text/javascript" src="https://pg.easypay.co.kr/webpay/EasypayCard_Web.js"></script> -->
+});
 
-  <!-- 페이지 개별 스크립트 -->
-  <script type="text/javascript">
+function onTheTest(){
+	console.log("test");
+	var param = {name : "박종석"};
+	$.ajax({
+		type : 'POST',
+		url  : '/testAjax',
+		contentType : 'application/json',
+		data : JSON.stringify(param),
+		success : function(response){
+			console.log("요청성공: ", response);
+		}
+		
+			
+	});
+}
+  
 /* -------- 본인인증 Start ----------*/
 var KMCIS_window;
-function openKMCISWindow() {    
+function openKMCISWindow() { 
+	console.log("인증");
 	var UserAgent = navigator.userAgent;
 	/* 모바일 접근 체크*/
 	// 모바일일 경우 (변동사항 있을경우 추가 필요)
@@ -992,7 +965,7 @@ function openKMCISWindow() {
 
   <!-- 기타 스크립트 추가 -->
   <!-- 주소api -->
-  <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+<!--   <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script> -->
   <script>
       //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
       function execDaumPostcode() {

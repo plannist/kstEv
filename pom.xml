@@ -53,6 +53,18 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+	        <groupId>org.mybatis.spring.boot</groupId>
+	        <artifactId>mybatis-spring-boot-starter</artifactId>
+	        <version>1.1.1</version>
+	    </dependency>
+	    
+   		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.4</version>
+		</dependency>
+	    
 		 <!-- JSTL -->
    		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -68,7 +80,21 @@
 			<artifactId>tomcat-embed-jasper</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		
+		<!-- gson, json (HttpMessageNotWritableException 해결 @ResponseBody)-->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.8.1</version>
+		</dependency>
+		
 	</dependencies>
+	
 
 	<build>
 		<plugins>
