@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
+	
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127100470-1"></script>
+<!--   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127100470-1"></script> -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -13,7 +16,8 @@
 
     gtag('config', 'UA-127100470-1');
   </script>
-  <script type="text/javascript" src="lib/js/gtag.js"></script>
+ 
+  <script type="text/javascript" src="/js/jquery.js"></script>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -28,13 +32,12 @@
   <meta name="format-detection" content="telephone=no">
 
   <!-- SEO 공통 -->
-  <link rel="canonical" href="https://www.cevo.co.kr" />
-  <link rel="shortcut icon" href="/lib/images/seo/favicon.ico" />
-  <link rel="apple-touch-icon-precomposed" href="/lib/images/seo/size-152x152.png" />
+<!--   <link rel="canonical" href="https://www.cevo.co.kr" /> -->
+<!--   <link rel="shortcut icon" href="/lib/images/seo/favicon.ico" /> -->
+<!--   <link rel="apple-touch-icon-precomposed" href="/lib/images/seo/size-152x152.png" /> -->
 
   <!-- 공통 스타일시트 -->
-  <link rel="stylesheet" href="/lib/css/base.css?ver=20012802" /><!--mib200128 ver 변경 -->
-  <link rel="stylesheet" href="/lib/css/sub.css" />
+  <link rel="stylesheet" type="text/css" href='<c:url value="/css/ev.css"/>' />
 
   <!-- 네이버 연관채널 -->
   <script type="application/ld+json">
@@ -62,7 +65,7 @@
 
   <!-- SEO 개별 -->
   <meta name="title" content="캠시스 전기차 CEVO" />
-  <meta name="description" content="대한민국 최초 자체개발 초소형 전기차 CEVO-C" />
+  <meta name="description" content="대한민국 최초 자체개발 초소형 전기차 KST-EV" />
   <meta name="keywords" content="CEVO keywords" />
   <meta property="og:type" content="webpage" data-dynamic="true" />
   <meta property="og:title" content="캠시스 전기차 CEVO" data-dynamic="true" />
@@ -90,156 +93,6 @@
 
   <!-- 공통 헤더 -->
   <header id="skip-header" class="ly-header">
-    <!-- 헤더 유틸 -->
-    <div class="header">
-      <!-- 로고 -->
-      <h1 class="header-logo"><a href="/index.jsp" target="_self" class="header-logo-a" title="CEVO"><div class="header-logo-img"><span class="blind">CEVO</span></div></a></h1>
-      <!-- 모바일 토글 메뉴 -->
-      <div class="header-togglenav">
-        <a id="side-toggle" href="#side-nav" target="_self" class="header-togglenav-a js-header-togglenav-a" title="메뉴"><span class="header-togglenav-bg">메뉴</span></a>
-      </div>
-      <!-- GNB -->
-      <div id="skip-gnb" class="header-gnb">
-        <nav class="gnb" role="navigation">
-          <h2 class="blind">네비게이션</h2>
-          <!-- By Cammsys -->
-          <div class="gnb-d1-list js-gnb-d1-list" data-gnbdepthname="bycammsys">
-            <a href="/cammsys/company.jsp" target="_self" class="gnb-d1-a js-gnb-d1-btn" title="By CAMMSYS" data-gnbdepth1="bycammsys">By CAMMSYS</a>
-            <div class="gnb-d2-list js-gnb-d2-list">
-              <a href="/cammsys/company.jsp" target="_self" class="gnb-d2-a" title="회사소개" data-gnbdepth2="company">회사소개</a>
-              <a href="/cammsys/ceo.jsp" target="_self" class="gnb-d2-a" title="인사말" data-gnbdepth2="ceo">인사말</a>
-              <a href="/cammsys/visit.jsp" target="_self" class="gnb-d2-a" title="오시는 길" data-gnbdepth2="visit">오시는 길</a>
-            </div>
-          </div>
-          <!-- vehicles -->
-          <div class="gnb-d1-list js-gnb-d1-list" data-gnbdepthname="vehicles">
-            <a href="/vehicles/c.jsp" target="_self" class="gnb-d1-a js-gnb-d1-btn" title="Vehicles" data-gnbdepth1="vehicles">Vehicles</a>
-            <div class="gnb-d2-list js-gnb-d2-list">
-              <a href="/vehicles/c.jsp" target="_self" class="gnb-d2-a" title="C" data-gnbdepth2="c">CEVO-C</a>
-            </div>
-          </div>
-          <!-- service -->
-          <div class="gnb-d1-list js-gnb-d1-list" data-gnbdepthname="service">
-            <a href="/service/repair.jsp" target="_self" class="gnb-d1-a js-gnb-d1-btn" title="Service" data-gnbdepth1="service">Service</a>
-            <div class="gnb-d2-list js-gnb-d2-list">
-              <a href="/service/repair.jsp" target="_self" class="gnb-d2-a" title="차량 정비" data-gnbdepth2="repair">차량 정비</a>
-              <a href="/service/information.jsp" target="_self" class="gnb-d2-a" title="충전소 및 보조금 안내" data-gnbdepth2="information">충전소 및 보조금 안내</a>
-              <!-- mib190829 페이지명 수정// --><a href="/service/search.jsp" target="_self" class="gnb-d2-a" title="지점 안내" data-gnbdepth2="search">지점 안내</a><!-- //mib190829 페이지명 수정 -->
-              <a href="/service/as.jsp" target="_self" class="gnb-d2-a" title="A/S 센터" data-gnbdepth2="as">A/S 센터</a>
-              <!-- mib190926 진단기 페이지 추가// --><a href="/service/scanner.jsp" target="_self" class="gnb-d2-a" title="진단기" data-gnbdepth2="scanner">진단기</a><!-- //mib190926 진단기 페이지 추가 -->
-            </div>
-          </div>
-          <!-- Media -->
-          <div class="gnb-d1-list js-gnb-d1-list" data-gnbdepthname="media">
-            <a href="/media/list.jsp" target="_self" class="gnb-d1-a js-gnb-d1-a" title="Media" data-gnbdepth1="media">Media</a>
-            <!-- <div class="gnb-d2-list js-gnb-d2-list">
-              <a href="/media/list.jsp" target="_self" class="gnb-d2-a" title="Media" data-gnbdepth2="media">Media</a>
-            </div> -->
-          </div>
-          <!-- Contact Us -->
-          <div class="gnb-d1-list js-gnb-d1-list" data-gnbdepthname="contactus">
-            <!-- mib190829 링크값 변경// --><a href="/contact/faq.jsp" target="_self" class="gnb-d1-a js-gnb-d1-btn" title="Contact us" data-gnbdepth1="contactus">Contact us</a><!-- //mib190829 링크값 변경 -->
-            <div class="gnb-d2-list js-gnb-d2-list">
-              <!-- mib190829 faq 노출 및 위치 변경// --><a href="/contact/faq.jsp" target="_self" class="gnb-d2-a" title="FAQ" data-gnbdepth2="faq">FAQ</a><!-- //mib190829 faq 노출 및 위치 변경 -->
-              <a href="/contact/cs.jsp" target="_self" class="gnb-d2-a" title="1 : 1 문의" data-gnbdepth2="cs">1 : 1 문의</a>
-              <a href="/contact/customer.jsp" target="_self" class="gnb-d2-a" title="고객센터" data-gnbdepth2="고객센터">고객센터</a>
-            </div>
-          </div>
-          <!-- mib190729 정식계약 추가// -->
-          <div class="gnb-d1-agreement" data-gnbdepthname="">
-            <a href="/agreement/agreement_gate.jsp" target="_self" class="gnb-d1-agreement-a" title="정식계약">정식계약</a>
-          </div>
-          <!-- //mib190729 정식계약 추가 -->
-          <!-- 사전예약 -->
-          <!-- mib190701 7월1일이후 사전예약 비노출// -->
-          <script>
-            var $eventDayBoolean = true;
-            var $nowDay = new Date(); 
-            var $todayAtMidn = new Date($nowDay.getFullYear(), $nowDay.getMonth(), $nowDay.getDate());//오늘
-            var $specificDate = new Date("7/1/2019");//기준일(m/d/yyyy)
-            if ($todayAtMidn.getTime() >= $specificDate.getTime()) {//비교(기준일 July-01 이전에만 실행)
-              $eventDayBoolean = false;
-            }
-          </script>
-          <script>
-            if($eventDayBoolean) {
-              //document.write('<div class="gnb-d1-reservation" data-gnbdepthname="reservation"><a href="/reservation.jsp" target="_self" class="gnb-d1-reservation-a" title="사전예약" data-gnbdepth2="cs">사전예약</a></div>');
-            }
-          </script><!-- //mib190701 7월1일이후 사전예약 비노출 -->
-          <!-- 언어변경 -->
-          <div class="gnb-d1-language">
-            <a href="/en/" target="_self" class="gnb-d1-language-a" title="ENGLISH" data-gnbdepth1="location">ENG</a>
-          </div>
-        </nav>
-      </div>
-    </div>
-    <!-- 모바일 사이드 메뉴 -->
-    <div id="side-nav" class="header-side js-header-side">
-      <div class="side-bg-dimmed js-side-bg-dimmed"></div>
-      <div class="side-wrap">
-        <!-- 모바일 닫기 버튼 -->
-        <a href="#side-toggle" target="_self" class="side-close-a js-side-close-a" title="닫기"><img src="/lib/images/common/side-close.png" alt="닫기" class="side-close-img" /></a>
-        <!-- 모바일 사이드 컨텐츠 -->
-        <div class="side-content">
-          <!-- By Cammsys -->
-          <div class="side-d1-list js-side-d1-list">
-            <button type="button" class="side-d1-btn js-side-d1-btn" title="By CAMMSYS" data-gnbdepth1="bycammsys">By CAMMSYS</button>
-            <div class="side-d2-list js-side-d2-list">
-              <a href="/cammsys/company.jsp" target="_self" class="side-d2-a" title="회사소개" data-gnbdepth2="company">회사소개</a>
-              <a href="/cammsys/ceo.jsp" target="_self" class="side-d2-a" title="인사말" data-gnbdepth2="ceo">인사말</a>
-              <a href="/cammsys/visit.jsp" target="_self" class="side-d2-a" title="오시는 길" data-gnbdepth2="visit">오시는 길</a>
-            </div>
-          </div>
-          <!-- Vehicles -->
-          <div class="side-d1-list js-side-d1-list">
-            <button type="button" class="side-d1-btn js-side-d1-btn" title="Vehicles" data-gnbdepth1="vehicles">Vehicles</button>
-            <div class="side-d2-list js-side-d2-list">
-              <a href="/vehicles/c.jsp" target="_self" class="side-d2-a" title="C" data-gnbdepth2="c">CEVO-C</a>
-            </div>
-          </div>
-          <!-- Service -->
-          <div class="side-d1-list js-side-d1-list">
-            <button type="button" class="side-d1-btn js-side-d1-btn" title="Service" data-gnbdepth1="service">Service</button>
-            <div class="side-d2-list js-side-d2-list">
-              <a href="/service/repair.jsp" target="_self" class="side-d2-a" title="차량 정비" data-gnbdepth2="repair">차량 정비</a>
-              <a href="/service/information.jsp" target="_self" class="side-d2-a" title="충전소 및 보조금 안내" data-gnbdepth2="information">충전소 및 보조금 안내</a>
-              <!-- mib190829 페이지명 수정// --><a href="/service/search.jsp" target="_self" class="side-d2-a" title="지점 안내" data-gnbdepth2="search">지점 안내</a><!-- //mib190829 페이지명 수정 -->
-              <a href="/service/as.jsp" target="_self" class="side-d2-a" title="A/S 센터" data-gnbdepth2="as">A/S 센터</a>
-              <!-- mib190926 진단기 페이지 추가// --><a href="/service/scanner.jsp" target="_self" class="side-d2-a" title="진단기" data-gnbdepth2="scanner">진단기</a><!-- //mib190926 진단기 페이지 추가 -->
-            </div>
-          </div>
-          <!-- Media -->
-          <div class="side-d1-list">
-            <a href="/media/list.jsp" target="_self" class="side-d1-btn" title="Media" data-gnbdepth1="media">Media</a>
-          </div>
-          <!-- Contact Us -->
-          <div class="side-d1-list js-side-d1-list" data-name="contactus">
-            <button type="button" class="side-d1-btn js-side-d1-btn" title="Contact us" data-gnbdepth1="contactus">Contact us</button>
-            <div class="side-d2-list js-side-d2-list">
-              <!-- mib190829 faq 노출 및 위치 변경// --><a href="/contact/faq.jsp" target="_self" class="side-d2-a" title="FAQ" data-gnbdepth2="faq">FAQ</a><!-- //mib190829 faq 노출 및 위치 변경 -->
-              <a href="/contact/cs.jsp" target="_self" class="side-d2-a" title="1 : 1 문의" data-gnbdepth2="cs">1 : 1 문의</a>
-              <!-- mib190726 고객센터 추가// --><a href="/contact/customer.jsp" target="_self" class="side-d2-a" title="FAQ" data-gnbdepth2="customer">고객센터</a><!-- //mib190726 고객센터 추가 -->
-            </div>
-          </div>
-          <!-- mib190729 정식계약 추가// -->
-          <div class="side-d1-agreement"><a href="/agreement/agreement_gate.jsp" target="_self" class="side-d1-agreement-a" title="정식계약">정식계약</a></div>
-          <!-- //mib190729 정식계약 추가 -->
-          <!-- 사전예약 -->
-          <!-- mib190701 7월1일이후 사전예약 비노출// -->
-          <script>
-            if($eventDayBoolean) {
-              //document.write('<div class="side-d1-reservation"><a href="/reservation.jsp" target="_self" class="side-d1-reservation-a" title="사전예약">사전예약</a></div>');
-            }
-          </script>
-          <!-- //mib190701 7월1일이후 사전예약 비노출 -->
-          <!-- 언어변경 -->
-          <div class="side-d1-language">
-            <a href="/index.jsp" target="_self" class="side-d1-language-a" title="KOREAN">KOREAN</a>
-            <a href="/en/index.jsp" target="_self" class="side-d1-language-a" title="ENGLISH">ENGLISH</a>
-          </div>
-        </div>
-      </div>
-    </div>
   </header> 
 
   <!-- 공통 스킵 네비(메인) -->
@@ -760,26 +613,26 @@
   </footer>
 
   <!-- 공통 플러그인 -->
-  <script src="/lib/plugins/jquery-1.11.1.min.js"></script>
-  <script src="/lib/plugins/jquery-ui.min.js"></script>
-  <script src="/lib/plugins/jquery.waypoints.min.js"></script>
-  <script src="/lib/plugins/slick.min.js"></script>
+<!--   <script src="/lib/plugins/jquery-1.11.1.min.js"></script> -->
+<!--   <script src="/lib/plugins/jquery-ui.min.js"></script> -->
+<!--   <script src="/lib/plugins/jquery.waypoints.min.js"></script> -->
+<!--   <script src="/lib/plugins/slick.min.js"></script> -->
 
   <!-- 공통 자바스크립트 -->
-  <script src="/lib/js/global.js"></script>
-  <script src="/lib/js/function.js"></script>
-  <script src="/lib/js/ua.js"></script>
-  <script src="/lib/js/responsive.js"></script>
-  <script src="/lib/js/gnb.js"></script>
-  <script src="/lib/js/popup.js"></script>
-  <script src="/lib/js/common.js"></script>
+<!--   <script src="/lib/js/global.js"></script> -->
+<!--   <script src="/lib/js/function.js"></script> -->
+<!--   <script src="/lib/js/ua.js"></script> -->
+<!--   <script src="/lib/js/responsive.js"></script> -->
+<!--   <script src="/lib/js/gnb.js"></script> -->
+<!--   <script src="/lib/js/popup.js"></script> -->
+<!--   <script src="/lib/js/common.js"></script> -->
 
-  <script src="/src/js/ksmng_jquery_validation.js"></script>
-  <script src="/src/plugins/jquery.form.js"></script>
+<!--   <script src="/src/js/ksmng_jquery_validation.js"></script> -->
+<!--   <script src="/src/plugins/jquery.form.js"></script> -->
   <!-- Test pg팝업창 테스트 0723개발 -->
   <!-- <script type="text/javascript" src="http://testpg.easypay.co.kr/webpay/EasypayCard_Web.js"></script>  -->
   <!-- Real : pg -->
-  <script type="text/javascript" src="https://pg.easypay.co.kr/webpay/EasypayCard_Web.js"></script>
+<!--   <script type="text/javascript" src="https://pg.easypay.co.kr/webpay/EasypayCard_Web.js"></script> -->
 
   <!-- 페이지 개별 스크립트 -->
   <script type="text/javascript">

@@ -43,7 +43,7 @@ public class KstEvApplication {
 			.permitAll()
 			.and()
 			.authorizeRequests()
-			.antMatchers("/test")
+			.antMatchers("/newContract")
 			.permitAll()
 			.and()
 			

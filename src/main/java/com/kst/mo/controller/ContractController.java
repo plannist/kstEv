@@ -6,8 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ContractController {
 	
-	@RequestMapping("/test")
-	public String test() {
-		return "/test";
+	/**
+	 * 신규 계약 페이지
+	 * */
+	@RequestMapping("/newContract")
+	public String newContract() {
+		return "/contract/newContract";
 	}
 }
